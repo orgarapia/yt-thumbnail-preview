@@ -75,8 +75,8 @@
             <a href="#" class="flex items-center gap-1" title="YouTube Home">
                 <div class="relative flex items-center">
                     <i class="fab fa-youtube text-yt-red text-3xl"></i>
-                    <span class="text-xl font-bold tracking-tighter ml-1">YouTube</span>
-                    <span class="text-[10px] text-yt-textSecondary absolute top-0 -right-3">ID</span>
+                    <span class="text-xl font-bold tracking-tighter ml-1">Thumbnail Preview</span>
+                    <span class="text-[10px] text-yt-textSecondary absolute top-0 -right-3">YT</span>
                 </div>
             </a>
         </div>
@@ -84,7 +84,7 @@
         <!-- Center: Search -->
         <div class="flex items-center flex-1 max-w-[720px] ml-10">
             <div class="flex flex-1 items-center bg-yt-searchBg border border-yt-searchBorder rounded-l-full overflow-hidden ml-8">
-                <!-- Inner search icon (only visible on focus usually, but keeping it simple here) -->
+                <!-- Inner search icon -->
                 <div class="pl-4 pr-2 text-yt-textSecondary hidden sm:block">
                      <i class="fas fa-search"></i>
                 </div>
@@ -146,10 +146,6 @@
                     <i class="fas fa-image w-6 text-center mr-4 text-xl"></i>
                     <span class="text-sm font-medium">Thumbnail Preview</span>
                 </a>
-                 <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors mt-2">
-                    <i class="fas fa-tools w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">More Tools</span>
-                </a>
             </div>
 
             <!-- Anda > -->
@@ -174,35 +170,6 @@
                     <i class="far fa-thumbs-up w-6 text-center mr-4 text-xl"></i>
                     <span class="text-sm">Video yang disukai</span>
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors">
-                    <i class="fas fa-download w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">Download</span>
-                </a>
-            </div>
-
-            <!-- Eksplorasi -->
-            <div class="py-3 px-2 border-b border-yt-border">
-                <h3 class="px-3 mb-2 text-base font-medium">Eksplorasi</h3>
-                 <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors">
-                    <i class="fas fa-fire w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">Trending</span>
-                </a>
-                <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors">
-                    <i class="fas fa-music w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">Musik</span>
-                </a>
-                <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors">
-                    <i class="fas fa-film w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">Film</span>
-                </a>
-                <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors">
-                    <i class="fas fa-gamepad w-6 text-center mr-4 text-xl"></i>
-                    <span class="text-sm">Game</span>
-                </a>
-                 <a href="#" class="flex items-center px-3 py-2 hover:bg-yt-hover rounded-lg transition-colors mt-1">
-                    <i class="fas fa-chevron-down w-6 text-center mr-4"></i>
-                    <span class="text-sm">Tampilkan lebih ba...</span>
-                </a>
             </div>
             
             <div class="py-4 px-6 text-xs text-yt-textSecondary font-medium flex flex-wrap gap-x-2 gap-y-1">
@@ -218,7 +185,6 @@
                  <a href="#" class="hover:text-yt-text">Privasi</a>
                  <a href="#" class="hover:text-yt-text">Kebijakan & Keamanan</a>
                  <a href="#" class="hover:text-yt-text">Cara kerja YouTube</a>
-                 <a href="#" class="hover:text-yt-text">Uji fitur baru</a>
                  <div class="w-full mt-4 font-normal text-[#717171]">
                      © 2026 Google LLC
                  </div>
@@ -227,9 +193,25 @@
 
         <!-- Main Content (Feed) -->
         <main class="flex-1 bg-yt-bg overflow-y-auto overflow-x-hidden relative">
+            
+            <!-- Global Edit Controls (NEW FEATURE) -->
+            <div class="bg-yt-hover border-b border-yt-border px-4 py-3 md:px-6 flex flex-col sm:flex-row gap-4 items-center">
+                <div class="text-sm font-bold text-yt-text min-w-[max-content]">
+                    <i class="fas fa-sliders-h mr-2"></i> Alat Preview:
+                </div>
+                <div class="flex-1 w-full">
+                    <input type="text" value="Your Brain Reacts Before You Know You're Afraid" oninput="updateAllTitles(this.value)" class="w-full bg-yt-searchBg border border-yt-searchBorder focus:border-yt-blue rounded-lg px-3 py-1.5 text-sm text-yt-text outline-none transition-colors" placeholder="Ketik untuk ubah semua judul sekaligus...">
+                </div>
+                <div class="flex-1 w-full">
+                    <input type="text" value="Your Channel Name" oninput="updateAllChannels(this.value)" class="w-full bg-yt-searchBg border border-yt-searchBorder focus:border-yt-blue rounded-lg px-3 py-1.5 text-sm text-yt-text outline-none transition-colors" placeholder="Ketik untuk ubah semua nama channel...">
+                </div>
+                <div class="text-xs text-yt-textSecondary italic hidden lg:block">
+                    *Tip: Anda juga bisa klik teks di video langsung untuk mengedit.
+                </div>
+            </div>
+
             <!-- Filter Bar -->
             <div class="sticky top-0 bg-yt-bg/95 backdrop-blur-sm z-40 py-3 px-4 md:px-6 flex gap-3 overflow-x-auto no-scrollbar border-b border-yt-bg border-t border-yt-bg">
-                 <!-- Make sure no-scrollbar hides it visually but allows scrolling -->
                 <style>
                     .no-scrollbar::-webkit-scrollbar { display: none; }
                     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -240,8 +222,6 @@
                 <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Podcast</button>
                 <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Berita</button>
                 <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Game</button>
-                <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Animasi</button>
-                <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Sepak bola</button>
                 <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Baru diupload</button>
                 <button class="bg-yt-chip hover:bg-yt-chipHover px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors">Baru untuk Anda</button>
             </div>
@@ -250,26 +230,31 @@
             <div class="p-4 md:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-4 gap-y-10">
                 
                 <!-- Video Card 1 -->
-                <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput1').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput1" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb1')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <!-- THUMBNAIL (Clickable) -->
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput1').click()" title="Klik untuk ganti gambar">
                         <img id="thumb1" src="https://placehold.co/1280x720/222/555?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">12:34</div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
+                    <!-- INFO -->
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                             <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <!-- EDITABLE TITLE -->
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <!-- EDITABLE CHANNEL NAME -->
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]" title="Verified"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
@@ -280,272 +265,246 @@
                 </div>
 
                 <!-- Video Card 2 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput2').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput2" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb2')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput2').click()" title="Klik untuk ganti gambar">
                         <img id="thumb2" src="image_df1b14.jpg" onerror="this.src='https://placehold.co/1280x720/222/555?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL'" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">10:15</div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 3 -->
-                <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput3').click()">
+                <div class="flex flex-col group">
                      <input type="file" id="fileInput3" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb3')">
                      
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput3').click()" title="Klik untuk ganti gambar">
                         <img id="thumb3" src="https://placehold.co/1280x720/334/ccc?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">08:45</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 4 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput4').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput4" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb4')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput4').click()" title="Klik untuk ganti gambar">
                         <img id="thumb4" src="https://placehold.co/1280x720/113/eee?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">14:20</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
                 
-                 <!-- Video Card 5 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput5').click()">
+                <!-- Video Card 5 -->
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput5" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb5')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput5').click()" title="Klik untuk ganti gambar">
                         <img id="thumb5" src="https://placehold.co/1280x720/666/000?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">05:30</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 6 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput6').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput6" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb6')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput6').click()" title="Klik untuk ganti gambar">
                         <img id="thumb6" src="https://placehold.co/1280x720/0a1f3d/fff?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">21:05</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 7 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput7').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput7" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb7')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput7').click()" title="Klik untuk ganti gambar">
                         <img id="thumb7" src="https://placehold.co/1280x720/520/fff?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">11:11</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 8 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput8').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput8" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb8')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput8').click()" title="Klik untuk ganti gambar">
                         <img id="thumb8" src="https://placehold.co/1280x720/123/ddd?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">07:22</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 9 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput9').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput9" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb9')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput9').click()" title="Klik untuk ganti gambar">
                         <img id="thumb9" src="https://placehold.co/1280x720/4a1/fff?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">18:40</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Video Card 10 -->
-                 <div class="flex flex-col group cursor-pointer" onclick="document.getElementById('fileInput10').click()">
+                <div class="flex flex-col group">
                     <input type="file" id="fileInput10" class="hidden" accept="image/*" onchange="previewThumbnail(event, 'thumb10')">
                     
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-yt-border cursor-pointer" onclick="document.getElementById('fileInput10').click()" title="Klik untuk ganti gambar">
                         <img id="thumb10" src="https://placehold.co/1280x720/901/fff?text=CLICK+TO+PREVIEW\nYOUR+THUMBNAIL" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                         <div class="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1 rounded">03:55</div>
-                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
+                    
                     <div class="flex gap-3 mt-3 pr-6 relative">
                         <div class="flex-shrink-0">
                              <img src="https://placehold.co/100x100/purple/fff?text=U" class="w-9 h-9 rounded-full object-cover">
                         </div>
                         <div class="flex flex-col w-full">
-                            <h3 class="text-base font-medium line-clamp-2 text-yt-text group-hover:text-blue-400 transition-colors">
-                                Your Brain Reacts Before You Know You're Afraid
-                            </h3>
+                            <h3 class="video-title text-base font-medium line-clamp-2 text-yt-text hover:text-blue-400 transition-colors cursor-text outline-none focus:bg-yt-hover focus:ring-1 focus:ring-yt-border rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit judul">Your Brain Reacts Before You Know You're Afraid</h3>
+                            
                             <div class="text-sm text-yt-textSecondary mt-1 flex flex-col">
-                                <a href="#" class="hover:text-yt-text transition-colors flex items-center gap-1">
-                                    Your Channel Name <i class="fas fa-check-circle text-[10px]"></i>
-                                </a>
+                                <div class="flex items-center gap-1">
+                                    <span class="channel-name hover:text-yt-text transition-colors cursor-text outline-none focus:bg-yt-hover rounded px-1 -ml-1" contenteditable="true" spellcheck="false" title="Klik untuk edit channel">Your Channel Name</span>
+                                    <i class="fas fa-check-circle text-[10px]"></i>
+                                </div>
                                 <span>12 rb x ditonton • 2 jam yang lalu</span>
                             </div>
                         </div>
-                        <button class="absolute right-0 top-0 mt-3 mr-2 opacity-0 group-hover:opacity-100 p-1 text-yt-textSecondary hover:text-yt-text">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
                     </div>
                 </div>
 
@@ -559,15 +518,38 @@
             const input = event.target;
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
-                
                 reader.onload = function(e) {
-                    // Find the image tag by ID and replace its source with the uploaded file
                     document.getElementById(imgId).src = e.target.result;
                 }
-                
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // Function to update ALL titles instantly from the global input
+        function updateAllTitles(newTitle) {
+            const titles = document.querySelectorAll('.video-title');
+            titles.forEach(title => {
+                title.textContent = newTitle;
+            });
+        }
+
+        // Function to update ALL channel names instantly from the global input
+        function updateAllChannels(newChannel) {
+            const channels = document.querySelectorAll('.channel-name');
+            channels.forEach(channel => {
+                channel.textContent = newChannel;
+            });
+        }
+
+        // Prevent pressing "Enter" from creating a new line in editable text (Optional UX enhancement)
+        document.querySelectorAll('[contenteditable="true"]').forEach(element => {
+            element.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    this.blur(); // Remove focus
+                }
+            });
+        });
     </script>
 </body>
 </html>
